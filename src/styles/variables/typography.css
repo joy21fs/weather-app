@@ -1,0 +1,46 @@
+:root {
+  --text-preset-1-font-family: "DM Sans, SemiBold Italic";
+  --text-preset-1-font-size: 96px;
+  --text-preset-1-line-height: 100%;
+  --text-preset-1-letter-spacing: -2px;
+
+  --text-preset-2-font-family: "Bricolage Grotesque, Bold";
+  --text-preset-2-font-size: 52px;
+  --text-preset-2-line-height: 120%;
+  --text-preset-2-letter-spacing: 0;
+
+  --text-preset-3-font-family: "DM Sans, Light";
+  --text-preset-3-font-size: 32px;
+  --text-preset-3-line-height: 100%;
+  --text-preset-3-letter-spacing: 0;
+
+  --text-preset-4-font-family: "DM Sans, Bold";
+  --text-preset-4-font-size: 28px;
+  --text-preset-4-line-height: 120%;
+  --text-preset-4-letter-spacing: 0;
+
+  --text-preset-5-font-family: "DM Sans, SemiBold";
+  --text-preset-5-font-size: 20px;
+  --text-preset-5-line-height: 120%;
+  --text-preset-5-letter-spacing: 0;
+
+  --text-preset-5premium-font-family: "DM Sans, Medium";
+  --text-preset-5premium-font-size: 20px;
+  --text-preset-5premium-line-height: 120%;
+  --text-preset-5premium-letter-spacing: 0;
+
+  --text-preset-6-font-family: "DM Sans, Medium";
+  --text-preset-6-font-size: 18px;
+  --text-preset-6-line-height: 120%;
+  --text-preset-6-letter-spacing: 0;
+
+  --text-preset-7-font-family: "DM Sans, Medium";
+  --text-preset-7-font-size: 16px;
+  --text-preset-7-line-height: 120%;
+  --text-preset-7-letter-spacing: 0;
+
+  --text-preset-8-font-family: "DM Sans, Medium";
+  --text-preset-8-font-size: 14px;
+  --text-preset-8-line-height: 120%;
+  --text-preset-8-letter-spacing: 0;
+}

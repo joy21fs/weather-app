@@ -1,0 +1,10 @@
+@import "./variables/colors.css";
+@import "./variables/typography.css";
+@import "./variables/spacing.css";
+@import "./variables/radius.css";
+
+:root {
+  font-family: var(--text-preset-7-font-family), system-ui, Avenir, Helvetica,
+    Arial, sans-serif;
+  line-height: var(--text-preset-7-line-height);
+}
