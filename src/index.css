@@ -1,7 +1,7 @@
-@import "./variables/colors.css";
-@import "./variables/typography.css";
-@import "./variables/spacing.css";
-@import "./variables/radius.css";
+@import "./styles/variables/colors.css";
+@import "./styles/variables/typography.css";
+@import "./styles/variables/spacing.css";
+@import "./styles/variables/radius.css";
 
 :root {
   font-family: var(--text-preset-7-font-family), system-ui, Avenir, Helvetica,
