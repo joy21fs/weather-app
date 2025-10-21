@@ -1,0 +1,37 @@
+.Button {
+  background-color: inherit;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-12);
+  color: var(--color-neutral-0);
+  width: 100%;
+  cursor: pointer;
+
+  &.dropdown {
+    font-family: var(--text-preset-7-font-family);
+    padding: 8px 10px;
+
+    display: flex;
+    justify-content: space-between;
+
+    &:hover,
+    &:active {
+      background-color: var(--color-neutral-700);
+    }
+
+    &.current {
+      background-color: var(--color-neutral-700);
+    }
+  }
+
+  &.search {
+    padding: 24px 16px;
+    background-color: var(--color-blue-500);
+    font-family: var(--text-preset-5-font-family);
+
+    &:hover,
+    &:active {
+      background-color: var(--color-blue-700);
+    }
+  }
+}
