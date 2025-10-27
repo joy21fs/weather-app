@@ -3,17 +3,20 @@ import Popup from "reactjs-popup";
 import css from "./Dropdown.module.css";
 
 import type { PopupActions, PopupProps } from "reactjs-popup/dist/types";
+import DropdownMenu from "../DropdownMenu";
 
 type Close = () => void;
 
 interface DropdownProps extends Omit<PopupProps, "children"> {
   children: React.ReactNode | ((close: Close) => React.ReactNode);
+  variant?: "units";
 }
 
 export default function Dropdown({
   trigger,
   children,
   position = "bottom right",
+  variant,
 }: DropdownProps) {
   const ref = useRef<PopupActions>(null);
   const close: Close = () => ref.current?.close();
@@ -27,9 +30,9 @@ export default function Dropdown({
       position={position}
       offsetY={8}
     >
-      <div className={css.Dropdown}>
+      <DropdownMenu variant={variant}>
         {typeof children === "function" ? children(close) : children}
-      </div>
+      </DropdownMenu>
     </Popup>
   );
 }
