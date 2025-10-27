@@ -2,16 +2,22 @@
   background-color: inherit;
 
   border: 1px solid transparent;
-  border-radius: var(--radius-12);
   color: var(--color-neutral-0);
-  width: 100%;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 8px 10px;
+
+  &.dropdown,
+  &.trigger-units,
+  &.trigger-days {
+    border-radius: var(--radius-8);
+  }
 
   &.dropdown {
+    width: 100%;
     font-family: var(--text-preset-7-font-family);
-    padding: 8px 10px;
-
-    display: flex;
+    gap: 10px;
     justify-content: space-between;
 
     &:hover,
@@ -24,10 +30,23 @@
     }
   }
 
+  &.trigger-units {
+    padding: 12px 16px;
+    background-color: var(--color-neutral-800);
+    gap: 10px;
+  }
+
+  &.trigger-days {
+    padding: 8px 16px;
+    gap: 12px;
+    background-color: var(--color-neutral-600);
+  }
+
   &.search {
-    padding: 24px 16px;
+    padding: 16px 24px;
     background-color: var(--color-blue-500);
-    font-family: var(--text-preset-5-font-family);
+    font-family: var(--text-preset-5medium-font-family);
+    border-radius: var(--radius-12);
 
     &:hover,
     &:active {
@@ -35,3 +54,5 @@
     }
   }
 }
+
+/* TODO: focus state */

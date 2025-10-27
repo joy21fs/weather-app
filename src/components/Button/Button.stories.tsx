@@ -1,15 +1,18 @@
 import Button from "./Button";
 import type { Meta, StoryObj } from "@storybook/react";
+import checkIcon from "../../assets/icon-checkmark.svg";
+import unitsIcon from "../../assets/icon-units.svg";
+import dropdownIcon from "../../assets/icon-dropdown.svg";
 
 const meta: Meta<typeof Button> = {
-  title: "Example/Button",
+  title: "Components/Button",
   component: Button,
 };
 
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Dropdown_Default: Story = {
+export const Default: Story = {
   decorators: [
     (Story) => (
       <div
@@ -24,35 +27,48 @@ export const Dropdown_Default: Story = {
     ),
   ],
   args: {
-    className: "dropdown",
+    children: "Switch to Metrics",
+  },
+};
+
+export const Dropdown: Story = {
+  decorators: Default.decorators,
+  args: {
+    variant: "dropdown",
     children: "Monday",
   },
 };
 
 export const Dropdown_CurrentOption: Story = {
-  decorators: [
-    (Story) => (
-      <div
-        style={{
-          backgroundColor: "var(--color-neutral-800)",
-          height: "100vh",
-          padding: "8px",
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: Default.decorators,
   args: {
-    className: "dropdown",
-    children: "Monday",
-    current: true,
+    variant: "dropdown",
+    className: "current",
+    children: "Celsius (°C)",
+    rightIcon: <img src={checkIcon} />,
+  },
+};
+
+export const Units_DropdownTriggerButton: Story = {
+  args: {
+    variant: "trigger-units",
+    children: "Units",
+    leftIcon: <img src={unitsIcon} />,
+    rightIcon: <img src={dropdownIcon} />,
+  },
+};
+
+export const Days_DropdownTriggerButton: Story = {
+  args: {
+    variant: "trigger-days",
+    children: <span>Monday</span>,
+    rightIcon: <img src={dropdownIcon} />,
   },
 };
 
 export const Search: Story = {
   args: {
-    className: "search",
+    variant: "search",
     children: "Search",
   },
 };

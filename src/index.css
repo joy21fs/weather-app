@@ -7,4 +7,5 @@
   font-family: var(--text-preset-7-font-family), system-ui, Avenir, Helvetica,
     Arial, sans-serif;
   line-height: var(--text-preset-7-line-height);
+  color: var(--color-neutral-200);
 }
