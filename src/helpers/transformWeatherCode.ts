@@ -1,46 +1,36 @@
 import type { Weather } from "~/types/weather";
 
-const WEATHER_CODE_MAP: Record<number, Weather> = {
-  0: "sunny",
-
-  1: "cloudy",
-  2: "cloudy",
-  3: "cloudy",
-
-  45: "foggy",
-  48: "foggy",
-
-  51: "rainy",
-  53: "rainy",
-  55: "rainy",
-
-  56: "rainy",
-  57: "rainy",
-
-  61: "rainy",
-  63: "rainy",
-  65: "rainy",
-
-  66: "rainy",
-  67: "rainy",
-
-  71: "snowy",
-  73: "snowy",
-  75: "snowy",
-  77: "snowy",
-
-  80: "rainy",
-  81: "rainy",
-  82: "rainy",
-
-  85: "snowy",
-  86: "snowy",
-
-  95: "stormy",
-  96: "stormy",
-  99: "stormy",
-};
-
 export function getWeatherFromCode(code: number): Weather {
-  return WEATHER_CODE_MAP[code] ?? "sunny";
+  // No precipitation codes 0-49 (but subdivided)
+  if (code === 0) return "sunny";
+  if (code === 1 || code === 2) return "partlyCloudy";
+  if (code === 3) return "cloudy";
+  if ((code >= 10 && code <= 12) || (code >= 40 && code <= 49)) return "foggy";
+
+  // Drizzle codes
+  if ((code >= 20 && code <= 20) || (code >= 50 && code <= 59))
+    return "drizzly";
+
+  // Rain codes
+  if (
+    (code >= 21 && code <= 21) ||
+    (code >= 60 && code <= 69) ||
+    (code >= 25 && code <= 26) ||
+    (code >= 80 && code <= 84)
+  )
+    return "rainy";
+
+  // Snow codes
+  if (
+    (code >= 22 && code <= 22) ||
+    (code >= 70 && code <= 79) ||
+    (code >= 85 && code <= 86)
+  )
+    return "snowy";
+
+  // Storm codes
+  if ((code >= 27 && code <= 27) || (code >= 90 && code <= 99)) return "stormy";
+
+  // Catch-all fallback
+  return "sunny";
 }

@@ -1,7 +1,9 @@
 export type Weather =
-  | "foggy"
-  | "cloudy"
   | "sunny"
-  | "snowy"
+  | "foggy"
+  | "partlyCloudy"
+  | "cloudy"
+  | "drizzly"
   | "rainy"
+  | "snowy"
   | "stormy";
