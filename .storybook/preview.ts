@@ -1,8 +1,16 @@
 import type { Preview } from "@storybook/react-vite";
 import "../src/index.css";
+import i18nInstance from "../src/i18n";
+
+const i18n = i18nInstance.cloneInstance({
+  react: {
+    useSuspense: false,
+  },
+});
 
 const preview: Preview = {
   parameters: {
+    i18n,
     controls: {
       matchers: {
         color: /(background|color)$/i,
