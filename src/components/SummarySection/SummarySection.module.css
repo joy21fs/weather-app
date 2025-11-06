@@ -1,0 +1,74 @@
+.SummarySection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-neutral-0);
+  position: relative;
+
+  background-image: url("images/bg-today-large.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  aspect-ratio: 720 / 286;
+  box-sizing: border-box;
+  padding: 80px 24px;
+  gap: 20px;
+  max-width: 720px;
+
+  .backgroundImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .placeNDate {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .place {
+      font-family: var(--text-preset-4-font-family);
+      font-size: var(--text-preset-4-font-size);
+      line-height: var(--text-preset-4-line-height);
+    }
+
+    .date {
+      font-family: var(--text-preset-6-font-family);
+      font-size: var(--text-preset-6-font-size);
+      opacity: 80%;
+    }
+  }
+
+  .iconNTemp {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    img {
+      height: 120px;
+      aspect-ratio: 1;
+    }
+
+    .temperature {
+      font-family: var(--text-preset-1-font-family);
+      font-size: var(--text-preset-1-font-size);
+      line-height: var(--text-preset-1-line-height);
+      letter-spacing: var(--text-preset-1-letter-spacing);
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .SummarySection {
+    background-image: url("images/bg-today-small.svg");
+    flex-direction: column;
+    aspect-ratio: 343 / 286;
+    justify-content: center;
+    max-width: 343px;
+
+    .placeNDate {
+      align-items: center;
+    }
+  }
+}
