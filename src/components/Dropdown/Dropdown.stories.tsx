@@ -38,7 +38,7 @@ export const Default: Story = {
         {(close: () => void) => (
           <>
             <Button
-              variant='dropdown'
+              variant='option'
               current={trigger.props.children === "Monday"}
               onClick={() => {
                 handleSelect("Monday");
@@ -48,7 +48,7 @@ export const Default: Story = {
               Monday
             </Button>
             <Button
-              variant='dropdown'
+              variant='option'
               current={trigger.props.children === "Tuesday"}
               onClick={() => {
                 handleSelect("Tuesday");
@@ -63,3 +63,5 @@ export const Default: Story = {
     );
   },
 };
+
+Default.storyName = "Dropdown";

@@ -12,15 +12,14 @@
   border-radius: var(--radius-12);
 
   .day {
-    font-family: var(--text-preset-6-font-family);
-    font-size: var(--text-preset-6-font-size);
+    font: var(--font-6);
   }
 
   .tempBlock {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    font-family: var(--text-preset-7-font-family);
+    font: var(--font-7);
   }
 
   img {

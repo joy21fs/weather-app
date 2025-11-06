@@ -11,14 +11,12 @@
 
   .infoName {
     text-transform: capitalize;
-    font-family: var(--text-preset-6-font-family);
-    font-size: var(--text-preset-6-font-size);
+    font: var(--font-6);
     color: var(--color-neutral-200);
   }
 
   .infoValue {
-    font-family: var(--text-preset-3-font-family);
-    font-size: var(--text-preset-3-font-size);
+    font: var(--font-3);
     color: var(--color-neutral-0);
   }
 }

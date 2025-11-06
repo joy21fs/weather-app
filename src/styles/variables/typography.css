@@ -41,48 +41,23 @@
 }
 
 :root {
-  --text-preset-1-font-family: "DM Sans, SemiBold Italic";
-  --text-preset-1-font-size: 96px;
-  --text-preset-1-line-height: 100%;
-  --text-preset-1-letter-spacing: -2px;
+  /* font-style font-weight font-size font-family */
+  --font-1: 400 96px/100% "DM Sans, SemiBold Italic";
+  --font-2: 700 52px/120% "Bricolage Grotesque, Bold";
+  --font-3: 300 32px/100% "DM Sans, Light";
+  --font-4: 700 28px/120% "DM Sans, Bold";
+  --font-5: 500 20px/120% "DM Sans, SemiBold";
+  --font-5m: 500 20px/120% "DM Sans, Medium";
+  --font-6: 400 18px/120% "DM Sans, Medium";
+  --font-7: 400 16px/120% "DM Sans, Medium";
+  --font-8: 400 14px/120% "DM Sans, Medium";
 
-  --text-preset-2-font-family: "Bricolage Grotesque, Bold";
-  --text-preset-2-font-size: 52px;
-  --text-preset-2-line-height: 120%;
-  --text-preset-2-letter-spacing: 0;
-
-  --text-preset-3-font-family: "DM Sans, Light";
-  --text-preset-3-font-size: 32px;
-  --text-preset-3-line-height: 100%;
-  --text-preset-3-letter-spacing: 0;
-
-  --text-preset-4-font-family: "DM Sans, Bold";
-  --text-preset-4-font-size: 28px;
-  --text-preset-4-line-height: 120%;
-  --text-preset-4-letter-spacing: 0;
-
-  --text-preset-5-font-family: "DM Sans, SemiBold";
-  --text-preset-5-font-size: 20px;
-  --text-preset-5-line-height: 120%;
-  --text-preset-5-letter-spacing: 0;
-
-  --text-preset-5medium-font-family: "DM Sans, Medium";
-  --text-preset-5medium-font-size: 20px;
-  --text-preset-5medium-line-height: 120%;
-  --text-preset-5medium-letter-spacing: 0;
-
-  --text-preset-6-font-family: "DM Sans, Medium";
-  --text-preset-6-font-size: 18px;
-  --text-preset-6-line-height: 120%;
-  --text-preset-6-letter-spacing: 0;
-
-  --text-preset-7-font-family: "DM Sans, Medium";
-  --text-preset-7-font-size: 16px;
-  --text-preset-7-line-height: 120%;
-  --text-preset-7-letter-spacing: 0;
-
-  --text-preset-8-font-family: "DM Sans, Medium";
-  --text-preset-8-font-size: 14px;
-  --text-preset-8-line-height: 120%;
-  --text-preset-8-letter-spacing: 0;
+  --ls-1: -2px;
+  --ls-2: 0;
+  --ls-3: 0;
+  --ls-4: 0;
+  --ls-5: 0;
+  --ls-6: 0;
+  --ls-7: 0;
+  --ls-8: 0;
 }

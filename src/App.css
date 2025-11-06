@@ -10,10 +10,8 @@ body {
 
 h1 {
   color: var(--color-neutral-0);
-  font-family: var(--text-preset-2-font-family);
-  font-size: var(--text-preset-2-font-size);
-  line-height: var(--text-preset-2-line-height);
-  letter-spacing: var(--text-preset-2-letter-spacing);
+  font: var(--font-2);
+  letter-spacing: var(--ls-2);
 }
 
 @media (max-width: 768px) {

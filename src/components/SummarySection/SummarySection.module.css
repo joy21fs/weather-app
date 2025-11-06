@@ -28,14 +28,12 @@
     gap: 12px;
 
     .place {
-      font-family: var(--text-preset-4-font-family);
-      font-size: var(--text-preset-4-font-size);
-      line-height: var(--text-preset-4-line-height);
+      font: var(--font-4);
+      line-height: var(--ls-4);
     }
 
     .date {
-      font-family: var(--text-preset-6-font-family);
-      font-size: var(--text-preset-6-font-size);
+      font: var(--font-6);
       opacity: 80%;
     }
   }
@@ -51,10 +49,8 @@
     }
 
     .temperature {
-      font-family: var(--text-preset-1-font-family);
-      font-size: var(--text-preset-1-font-size);
-      line-height: var(--text-preset-1-line-height);
-      letter-spacing: var(--text-preset-1-letter-spacing);
+      font: var(--font-1);
+      letter-spacing: var(--ls-1);
     }
   }
 }
