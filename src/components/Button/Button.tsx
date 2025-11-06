@@ -8,7 +8,7 @@ interface Props extends React.ComponentPropsWithoutRef<"button"> {
   className?: string;
   leftIcon?: Icon;
   rightIcon?: Icon;
-  variant?: "dropdown" | "trigger-units" | "trigger-days" | "search";
+  variant?: "option" | "trigger-units" | "trigger-days" | "search";
   current?: boolean;
 }
 

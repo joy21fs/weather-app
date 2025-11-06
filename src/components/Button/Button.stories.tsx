@@ -31,10 +31,10 @@ export const Default: Story = {
   },
 };
 
-export const Dropdown: Story = {
+export const Dropdown_DefaultOption: Story = {
   decorators: Default.decorators,
   args: {
-    variant: "dropdown",
+    variant: "option",
     children: "Monday",
   },
 };
@@ -42,7 +42,7 @@ export const Dropdown: Story = {
 export const Dropdown_CurrentOption: Story = {
   decorators: Default.decorators,
   args: {
-    variant: "dropdown",
+    variant: "option",
     className: "current",
     children: "Celsius (°C)",
     rightIcon: <img src={checkIcon} />,
