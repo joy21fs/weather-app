@@ -1,0 +1,26 @@
+.HourlyForecastCard {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 10px 12px 10px;
+  align-items: center;
+  background-color: var(--color-neutral-700);
+  border: 1px solid var(--color-neutral-600);
+  border-radius: var(--radius-8);
+
+  color: var(--color-neutral-0);
+
+  .weatherNTime {
+    display: flex;
+    align-items: center;
+    font: var(--font-5m);
+
+    img {
+      height: 40px;
+      aspect-ratio: 1;
+    }
+  }
+
+  .temperature {
+    font: var(--font-7);
+  }
+}
