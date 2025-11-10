@@ -27,7 +27,7 @@ type Story = StoryObj<typeof InfoCard>;
 
 export const Default: Story = {
   args: {
-    infoName: "percipitation",
+    infoName: "precipitation",
     value: "0 mm",
   },
 };

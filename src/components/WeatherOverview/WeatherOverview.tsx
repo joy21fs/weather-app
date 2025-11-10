@@ -2,7 +2,7 @@ import type { Weather } from "~/types/weather";
 import css from "./WeatherOverview.module.css";
 import WeatherIcon from "../WeatherIcon";
 
-interface Props {
+export interface Props {
   location: string;
   date: string;
   weather: Weather;

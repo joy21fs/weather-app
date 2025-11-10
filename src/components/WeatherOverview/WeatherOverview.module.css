@@ -26,6 +26,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    align-items: flex-start;
 
     .place {
       font: var(--font-4);
@@ -55,7 +56,7 @@
 }
 
 @media (max-width: 720px) {
-  .SummarySection {
+  .WeatherOverview {
     background-image: url("images/bg-today-small.svg");
     flex-direction: column;
     aspect-ratio: 343 / 286;
@@ -64,6 +65,16 @@
 
     .placeNDate {
       align-items: center;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .WeatherOverview {
+    .iconNTemp {
+      .temperature {
+        font-size: calc(96px * 0.8);
+      }
     }
   }
 }

@@ -2,5 +2,11 @@
   "welcome": "How’s the sky looking today?",
   "sectionTitle": {
     "hourlyForecast": "Hourly Forecast"
+  },
+  "weatherInfo": {
+    "apparent_temperature": "Feels like",
+    "relative_humidity_2m": "Humidity",
+    "wind_speed_10m": "Wind",
+    "precipitation": "Precipitation"
   }
 }
