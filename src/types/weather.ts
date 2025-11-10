@@ -7,3 +7,9 @@ export type Weather =
   | "rainy"
   | "snowy"
   | "stormy";
+
+export type HourlyWeather = {
+  temperature: number;
+  weather: Weather;
+  time: string;
+};

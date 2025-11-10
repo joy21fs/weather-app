@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/react-vite";
-import "../src/index.css";
+import "~/index.css";
+import "~/App.css";
 import i18nInstance from "../src/i18n";
 
 const i18n = i18nInstance.cloneInstance({

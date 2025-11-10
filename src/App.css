@@ -14,6 +14,10 @@ h1 {
   letter-spacing: var(--ls-2);
 }
 
+h2 {
+  font: var(--font-5);
+}
+
 @media (max-width: 768px) {
   body {
     padding-inline: var(--spacing-200);
