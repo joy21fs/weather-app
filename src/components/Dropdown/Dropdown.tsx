@@ -3,7 +3,7 @@ import Popup from "reactjs-popup";
 import css from "./Dropdown.module.css";
 
 import type { PopupActions, PopupProps } from "reactjs-popup/dist/types";
-import DropdownMenu from "../DropdownMenu";
+import DropdownMenu from "./DropdownMenu";
 
 type Close = () => void;
 

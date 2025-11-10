@@ -1,7 +1,6 @@
-import Button from "../Button";
 import type { Meta, StoryObj } from "@storybook/react";
 import DropdownMenu from "./DropdownMenu";
-import checkIcon from "../../assets/icon-checkmark.svg";
+import checkIcon from "~/assets/icon-checkmark.svg";
 import { useState } from "storybook/internal/preview-api";
 import {
   TEMPERATURE_UNITS,
@@ -9,9 +8,10 @@ import {
   type UnitSystem,
   type TemperatureUnit,
 } from "~/types/units";
+import Button from "~/components/Button";
 
 const meta: Meta<typeof DropdownMenu> = {
-  title: "Components/DropdownMenu",
+  title: "Components/Dropdown/DropdownMenu",
   component: DropdownMenu,
 };
 

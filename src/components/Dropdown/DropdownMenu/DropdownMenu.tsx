@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import css from "./DropdownMenu.module.css";
-import { bindCssModule } from "../../helpers/css";
+import { bindCssModule } from "~/helpers/css";
 
 interface Props {
   variant?: "units";

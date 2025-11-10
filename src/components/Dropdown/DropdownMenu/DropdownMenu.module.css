@@ -8,6 +8,7 @@
   align-items: flex-start;
   gap: 4px;
   width: 12rem;
+  position: static;
 
   &.units {
     padding-block: 6px;
