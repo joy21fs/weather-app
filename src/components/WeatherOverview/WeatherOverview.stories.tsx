@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import SummarySection from "./SummarySection";
+import WeatherOverview from "./WeatherOverview";
 
-const meta: Meta<typeof SummarySection> = {
-  title: "Components/SummarySection",
-  component: SummarySection,
+const meta: Meta<typeof WeatherOverview> = {
+  title: "Components/WeatherOverview",
+  component: WeatherOverview,
 };
 
 export default meta;
-type Story = StoryObj<typeof SummarySection>;
+type Story = StoryObj<typeof WeatherOverview>;
 
 export const Default: Story = {
   args: {
@@ -18,4 +18,4 @@ export const Default: Story = {
   },
 };
 
-Default.storyName = "SummarySection";
+Default.storyName = "WeatherOverview";

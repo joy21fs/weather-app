@@ -1,5 +1,5 @@
 import type { Weather } from "~/types/weather";
-import css from "./SummarySection.module.css";
+import css from "./WeatherOverview.module.css";
 import WeatherIcon from "../WeatherIcon";
 
 interface Props {
@@ -9,11 +9,11 @@ interface Props {
   currentTemperature: number;
 }
 
-export default function SummarySection(props: Props) {
+export default function WeatherOverview(props: Props) {
   const { location, date, weather, currentTemperature } = props;
 
   return (
-    <div className={css.SummarySection}>
+    <div className={css.WeatherOverview}>
       <div className={css.placeNDate}>
         <span className={css.place}>{location}</span>
         <span className={css.date}>{date}</span>

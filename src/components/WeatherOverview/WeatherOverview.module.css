@@ -1,4 +1,4 @@
-.SummarySection {
+.WeatherOverview {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,7 +29,6 @@
 
     .place {
       font: var(--font-4);
-      line-height: var(--ls-4);
     }
 
     .date {
