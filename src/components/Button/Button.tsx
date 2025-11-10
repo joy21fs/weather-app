@@ -1,3 +1,4 @@
+import React, { forwardRef } from "react";
 import { bindCssModule } from "../../helpers/css";
 import css from "./Button.module.css";
 import type { ReactElement } from "react";
@@ -14,7 +15,7 @@ interface Props extends React.ComponentPropsWithoutRef<"button"> {
 
 const cx = bindCssModule(css, "Button");
 
-export default function Button(props: Props) {
+const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
   const {
     className,
     children,
@@ -23,6 +24,7 @@ export default function Button(props: Props) {
     variant,
     current,
     onClick,
+    ...rest
   } = props;
 
   const buttonClassName = cx(
@@ -32,13 +34,20 @@ export default function Button(props: Props) {
   );
 
   return (
-    <button type='button' className={buttonClassName} onClick={onClick}>
+    <button
+      type='button'
+      ref={ref}
+      className={buttonClassName}
+      onClick={onClick}
+      {...rest}
+    >
       {leftIcon && icon(leftIcon)}
       {children}
       {rightIcon && icon(rightIcon)}
     </button>
   );
-}
+});
+export default Button;
 
 const icon = (icon: Icon) => {
   return typeof icon === "string" ? <img src={icon} alt='' /> : icon;

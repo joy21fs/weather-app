@@ -1,13 +1,23 @@
-import Button from "../Button";
 import Dropdown from "./Dropdown";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import dropdownIcon from "../../assets/icon-dropdown.svg";
 import { useArgs } from "storybook/internal/preview-api";
+import DropdownTriggerButton from "./DropdownTriggerButton";
+import Button from "../Button";
 
 const meta: Meta<typeof Dropdown> = {
   title: "Components/Dropdown",
   component: Dropdown,
+  decorators: [
+    (Story) => (
+      <div
+        style={{ width: "100%", display: "flex", justifyContent: "flex-end" }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
@@ -16,9 +26,9 @@ type Story = StoryObj<typeof Dropdown>;
 export const Default: Story = {
   args: {
     trigger: (
-      <Button variant='trigger-days' rightIcon={dropdownIcon}>
+      <DropdownTriggerButton variant='trigger-days' rightIcon={dropdownIcon}>
         Monday
-      </Button>
+      </DropdownTriggerButton>
     ),
   },
   render: function Renderer(args) {
@@ -26,9 +36,12 @@ export const Default: Story = {
     const handleSelect = (value: string) => {
       updateArgs({
         trigger: (
-          <Button variant='trigger-days' rightIcon={dropdownIcon}>
+          <DropdownTriggerButton
+            variant='trigger-days'
+            rightIcon={dropdownIcon}
+          >
             {value}
-          </Button>
+          </DropdownTriggerButton>
         ),
       });
     };

@@ -1,8 +1,8 @@
 import Button from "./Button";
 import type { Meta, StoryObj } from "@storybook/react";
-import checkIcon from "../../assets/icon-checkmark.svg";
-import unitsIcon from "../../assets/icon-units.svg";
-import dropdownIcon from "../../assets/icon-dropdown.svg";
+import checkIcon from "~/assets/icon-checkmark.svg";
+import unitsIcon from "~/assets/icon-units.svg";
+import dropdownIcon from "~/assets/icon-dropdown.svg";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
