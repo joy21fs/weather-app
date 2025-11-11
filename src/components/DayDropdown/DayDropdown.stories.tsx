@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import DayDropdown from "./DayDropdown";
 
 const meta: Meta<typeof DayDropdown> = {
-  title: "Blocks/DayDropdown",
+  title: "Components/DayDropdown",
   component: DayDropdown,
   decorators: [
     (Story) => (

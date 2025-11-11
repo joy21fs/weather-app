@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Button from "~/components/Button";
 import Dropdown from "~/components/Dropdown";
-import dropdownIcon from "~/assets/icon-dropdown.svg";
 import DropdownTriggerButton from "~/components/Dropdown/DropdownTriggerButton";
 
 const DAYS = [
@@ -23,7 +22,7 @@ export default function DayDropdown() {
   return (
     <Dropdown
       trigger={
-        <DropdownTriggerButton variant='trigger-days' rightIcon={dropdownIcon}>
+        <DropdownTriggerButton variant='trigger-days'>
           {selected}
         </DropdownTriggerButton>
       }
