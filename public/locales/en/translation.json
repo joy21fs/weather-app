@@ -1,7 +1,8 @@
 {
   "welcome": "How’s the sky looking today?",
   "sectionTitle": {
-    "hourlyForecast": "Hourly Forecast"
+    "hourlyForecast": "Hourly Forecast",
+    "dailyForecast": "Daily Forecast"
   },
   "weatherInfo": {
     "apparent_temperature": "Feels like",

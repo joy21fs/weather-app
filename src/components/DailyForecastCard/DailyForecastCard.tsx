@@ -3,7 +3,7 @@ import WeatherIcon from "../WeatherIcon";
 import css from "./DailyForecastCard.module.css";
 import { getWeatherFromCode } from "~/helpers/transformWeatherCode";
 
-interface Props {
+export interface Props {
   day: Day;
   weather_code: number;
   max_temp: number;
