@@ -24,7 +24,7 @@ export type TemperatureUnit =
   (typeof TEMPERATURE_UNITS)[keyof typeof TEMPERATURE_UNITS];
 export type WindSpeedUnit =
   (typeof WIND_SPEED_UNITS)[keyof typeof WIND_SPEED_UNITS];
-export type PercipiationUnit =
+export type PrecipiationUnit =
   (typeof PRECIPITATION_UNITS)[keyof typeof PRECIPITATION_UNITS];
 
 export const UNIT_CONFIGS: Record<
@@ -32,18 +32,18 @@ export const UNIT_CONFIGS: Record<
   {
     temperature: TemperatureUnit;
     windSpeed: WindSpeedUnit;
-    percipitation: PercipiationUnit;
+    precipitation: PrecipiationUnit;
   }
 > = {
   [UNIT_SYSTEMS.METRIC]: {
     temperature: TEMPERATURE_UNITS.CELSIUS,
     windSpeed: WIND_SPEED_UNITS.KMPH,
-    percipitation: PRECIPITATION_UNITS.MM,
+    precipitation: PRECIPITATION_UNITS.MM,
   },
   [UNIT_SYSTEMS.IMPERIAL]: {
     temperature: TEMPERATURE_UNITS.FAHRENHEIT,
     windSpeed: WIND_SPEED_UNITS.MPH,
-    percipitation: PRECIPITATION_UNITS.INCHES,
+    precipitation: PRECIPITATION_UNITS.INCHES,
   },
 };
 

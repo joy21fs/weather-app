@@ -4,6 +4,15 @@
     "hourlyForecast": "Hourly Forecast",
     "dailyForecast": "Daily Forecast"
   },
+  "unitSettings": {
+    "dropdownTriggerButton": "Units",
+    "switch": "Switch to {{ unitSystem }}",
+    "controls": {
+      "temperature": "Temperature",
+      "windSpeed": "Wind Speed",
+      "precipitation": "Precipitation"
+    }
+  },
   "weatherInfo": {
     "apparent_temperature": "Feels like",
     "relative_humidity_2m": "Humidity",
