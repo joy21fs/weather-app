@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import css from "./HourlyForecast.module.css";
 import HourlyForecastCard from "~/components/HourlyForecastCard";
 import type { HourlyWeather } from "~/types/weather";
-import DayDropdown from "../DayDropdown";
+import DayDropdown from "../../components/DayDropdown";
 
 interface Props {
   hours: HourlyWeather[];

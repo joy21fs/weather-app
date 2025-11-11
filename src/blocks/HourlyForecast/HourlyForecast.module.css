@@ -11,7 +11,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    line-height: 0;
+
+    h2 {
+      line-height: 0;
+    }
   }
 
   .hours {
