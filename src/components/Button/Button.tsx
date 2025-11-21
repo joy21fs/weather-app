@@ -24,6 +24,7 @@ const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
     variant,
     current,
     onClick,
+    type = "button",
     ...rest
   } = props;
 
@@ -35,7 +36,7 @@ const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
 
   return (
     <button
-      type='button'
+      type={type}
       ref={ref}
       className={buttonClassName}
       onClick={onClick}

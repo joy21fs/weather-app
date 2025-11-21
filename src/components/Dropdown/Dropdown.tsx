@@ -17,6 +17,10 @@ export default function Dropdown({
   children,
   position = "bottom right",
   variant,
+  open,
+  onOpen,
+  onClose,
+  disabled,
 }: DropdownProps) {
   const ref = useRef<PopupActions>(null);
   const close: Close = () => ref.current?.close();
@@ -29,6 +33,10 @@ export default function Dropdown({
       arrow={false}
       position={position}
       offsetY={8}
+      open={open}
+      onOpen={onOpen}
+      onClose={onClose}
+      disabled={disabled}
     >
       <DropdownMenu variant={variant}>
         {typeof children === "function" ? children(close) : children}

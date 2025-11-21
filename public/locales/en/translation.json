@@ -18,5 +18,10 @@
     "relative_humidity_2m": "Humidity",
     "wind_speed_10m": "Wind",
     "precipitation": "Precipitation"
+  },
+  "search": {
+    "button": "Search",
+    "inputPlaceholder": "Search for a place...",
+    "loading": "Search in progress..."
   }
 }
