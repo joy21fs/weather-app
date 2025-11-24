@@ -7,13 +7,13 @@
 
   background-image: url("images/bg-today-large.svg");
   background-repeat: no-repeat;
-  background-size: contain;
   background-position: center;
-  aspect-ratio: 720 / 286;
+
   box-sizing: border-box;
   padding: 80px 24px;
   gap: 20px;
-  max-width: 720px;
+
+  border-radius: var(--radius-20);
 
   .backgroundImg {
     position: absolute;
@@ -58,10 +58,11 @@
 @media (max-width: 720px) {
   .WeatherOverview {
     background-image: url("images/bg-today-small.svg");
+    background-size: cover;
+
     flex-direction: column;
-    aspect-ratio: 343 / 286;
+
     justify-content: center;
-    max-width: 343px;
 
     .placeNDate {
       align-items: center;

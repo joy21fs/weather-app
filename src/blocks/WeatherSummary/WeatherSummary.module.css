@@ -1,13 +1,14 @@
 .WeatherSummary {
   display: flex;
   flex-direction: column;
-  max-width: fit-content;
+
   gap: 20px;
 
   .infoSection {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    grid-auto-rows: 118px;
   }
 }
 
