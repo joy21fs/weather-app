@@ -6,7 +6,7 @@ export interface Props {
   location: string;
   date: string;
   weather: Weather;
-  currentTemperature: number;
+  currentTemperature: string;
 }
 
 export default function WeatherOverview(props: Props) {

@@ -1,12 +1,12 @@
 import type { Day } from "~/types/days";
 import css from "./DailyForecast.module.css";
 import DailyForecastCard from "~/components/DailyForecastCard";
-import type { Props as Forecast } from "~/components/DailyForecastCard";
+import type { DailyForecast } from "~/contexts/WeatherContext";
 import { useTranslation } from "react-i18next";
 
 interface Props {
   startDay: Day;
-  forecasts: Forecast[];
+  forecasts: DailyForecast[];
 }
 
 const DAYS: Day[] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -29,7 +29,8 @@ export default function DailyForecast(props: Props) {
           <DailyForecastCard
             key={forecast.day}
             day={forecast.day}
-            weather_code={forecast.weather_code}
+            date={forecast.date}
+            weather={forecast.weather}
             max_temp={forecast.max_temp}
             min_temp={forecast.min_temp}
           />

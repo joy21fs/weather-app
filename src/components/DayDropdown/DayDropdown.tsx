@@ -1,44 +1,34 @@
-import { useState } from "react";
 import Button from "~/components/Button";
 import Dropdown from "~/components/Dropdown";
 import DropdownTriggerButton from "~/components/Dropdown/DropdownTriggerButton";
-
-const DAYS = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-];
+import { useWeather } from "~/contexts/WeatherContext";
 
 export default function DayDropdown() {
-  const currentDay = new Date().toLocaleDateString("en-US", {
+  const { daily, selectedDate, setSelectedDate } = useWeather();
+  const selectedDay = selectedDate.toLocaleDateString("en-US", {
     weekday: "long",
   });
-  const [selected, setSelected] = useState(currentDay);
 
   return (
     <Dropdown
       trigger={
         <DropdownTriggerButton variant='trigger-days'>
-          {selected}
+          {selectedDay}
         </DropdownTriggerButton>
       }
     >
       {(close) =>
-        DAYS.map((day) => (
+        daily.map(({ date, day }) => (
           <Button
             key={day}
             variant='option'
-            current={selected === day}
+            current={selectedDate === date}
             onClick={() => {
-              setSelected(day);
+              setSelectedDate(date);
               close();
             }}
           >
-            {day}
+            {date.toLocaleDateString("en-US", { weekday: "long" })}
           </Button>
         ))
       }

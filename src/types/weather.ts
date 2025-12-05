@@ -9,18 +9,20 @@ export type Weather =
   | "stormy";
 
 export type HourlyWeather = {
-  temperature: number;
-  weather: Weather;
-  time: string;
+  temperature: number | null;
+  weather: Weather | null;
+  timeLabel: string;
 };
 
 export interface WeatherParms {
   latitude: number;
   longitude: number;
-  weather_code: number;
-  temperature_2m: number;
-  apparent_temperature: number;
-  relative_humidity_2m: number;
-  wind_speed_10m: number;
-  precipitation: number;
+  weather_code: number | null;
+
+  temperature_2m: number | null;
+  apparent_temperature: number | null;
+  relative_humidity_2m: number | null;
+
+  wind_speed_10m: number | null;
+  precipitation: number | null;
 }

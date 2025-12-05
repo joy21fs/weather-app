@@ -1,4 +1,7 @@
 export type Unit = "imperial" | "metric";
+
+export type UnitType = "temperature" | "windSpeed" | "precipitation";
+
 export const UNIT_SYSTEMS = {
   METRIC: "Metric",
   IMPERIAL: "Imperial",

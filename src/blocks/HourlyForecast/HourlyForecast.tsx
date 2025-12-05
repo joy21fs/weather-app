@@ -19,10 +19,11 @@ export default function HourlyForecast(props: Props) {
         <DayDropdown />
       </div>
       <div className={css.hours}>
-        {hours.map(({ weather, time, temperature }) => (
+        {hours.map(({ weather, timeLabel, temperature }) => (
           <HourlyForecastCard
+            key={timeLabel}
             weather={weather}
-            time={time}
+            timeLabel={timeLabel}
             temperature={temperature}
           />
         ))}

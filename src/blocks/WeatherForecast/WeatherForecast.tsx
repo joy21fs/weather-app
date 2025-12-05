@@ -6,9 +6,16 @@ import LocationSearch from "../LocationSearch/LocationSearch";
 import WeatherSummary from "../WeatherSummary";
 import DailyForecast from "../DailyForecast";
 import HourlyForecast from "../HourlyForecast";
+import { useWeather } from "~/contexts/WeatherContext";
+import type { Day } from "~/types/days";
+
+const DAYS: Day[] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export default function WeatherForecast() {
   const { t } = useTranslation();
+  const { current, hourly, daily, locationLabel } = useWeather();
+  const today = DAYS[new Date().getDay()];
+
   return (
     <div className={css.WeatherForecast}>
       <header className={css.nav}>
@@ -20,50 +27,26 @@ export default function WeatherForecast() {
       <section className={css.weatherInfo}>
         <div className={css.weatherSummary}>
           <WeatherSummary
-            apparent_temperature={""}
-            relative_humidity_2m={""}
-            wind_speed_10m={""}
-            precipitation={""}
-            location={"Berlin, Germany"}
+            apparent_temperature={`${current?.apparent_temperature}`}
+            relative_humidity_2m={`${current?.relative_humidity_2m}`}
+            wind_speed_10m={`${current?.wind_speed_10m}`}
+            precipitation={`${current?.precipitation}`}
+            location={locationLabel}
             date={new Date().toLocaleDateString("en-US", {
               weekday: "long",
               year: "numeric",
               month: "long",
               day: "numeric",
             })}
-            weather={"sunny"}
-            currentTemperature={0}
+            weather={current?.weather ?? "sunny"}
+            currentTemperature={`${current?.temperature_2m}`}
           />
         </div>
         <div className={css.dailyForecast}>
-          <DailyForecast
-            startDay={"Tue"}
-            forecasts={[
-              { day: "Mon", weather_code: 3, max_temp: 25, min_temp: 18 },
-              { day: "Tue", weather_code: 1, max_temp: 27, min_temp: 19 },
-              { day: "Wed", weather_code: 2, max_temp: 26, min_temp: 17 },
-              { day: "Thu", weather_code: 61, max_temp: 22, min_temp: 16 },
-              { day: "Fri", weather_code: 80, max_temp: 20, min_temp: 15 },
-              { day: "Sat", weather_code: 0, max_temp: 28, min_temp: 20 },
-              { day: "Sun", weather_code: 45, max_temp: 24, min_temp: 18 },
-            ]}
-          />
+          <DailyForecast startDay={today} forecasts={daily} />
         </div>
         <div className={css.hourlyForecast}>
-          <HourlyForecast
-            hours={[
-              {
-                weather: "stormy",
-                temperature: 58,
-                time: "3 PM",
-              },
-              {
-                weather: "rainy",
-                temperature: 55,
-                time: "4 PM",
-              },
-            ]}
-          />
+          <HourlyForecast hours={hourly} />
         </div>
       </section>
     </div>

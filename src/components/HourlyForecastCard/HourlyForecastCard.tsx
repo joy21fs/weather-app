@@ -1,21 +1,15 @@
-import type { Weather } from "~/types/weather";
+import type { HourlyWeather } from "~/types/weather";
 import css from "./HourlyForecastCard.module.css";
 import WeatherIcon from "../WeatherIcon";
 
-interface Props {
-  weather: Weather;
-  time: string;
-  temperature: number;
-}
-
-export default function HourlyForecastCard(props: Props) {
-  const { weather, time, temperature } = props;
+export default function HourlyForecastCard(props: HourlyWeather) {
+  const { weather, timeLabel, temperature } = props;
 
   return (
     <div className={css.HourlyForecastCard}>
       <div className={css.weatherNTime}>
-        <WeatherIcon weather={weather} />
-        <span>{time}</span>
+        <WeatherIcon weather={weather ?? "sunny"} />
+        <span>{timeLabel}</span>
       </div>
       <span className={css.temperature}>{`${temperature}°`}</span>
     </div>

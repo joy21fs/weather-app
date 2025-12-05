@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import searchIcon from "~/assets/icon-search.svg";
 import Dropdown from "~/components/Dropdown";
 import loadingIcon from "~/assets/icon-loading.svg";
+import { useWeather } from "~/contexts/WeatherContext";
 
 interface Location {
   name: string;
@@ -28,6 +29,7 @@ export default function LocationSearch(props: Props) {
 
   const { onSubmit } = props;
 
+  const { setLocation } = useWeather();
   const inputRef = useRef<HTMLInputElement>(null);
 
   // ensures dropdown closes if results become empty after async updates
@@ -73,7 +75,11 @@ export default function LocationSearch(props: Props) {
   const handleSelect = (loc: Location) => {
     setQuery(`${loc.name}, ${loc.country}`);
     setResults([]);
-
+    setLocation(
+      loc?.latitude ?? 0,
+      loc?.longitude ?? 0,
+      `${loc?.name}, ${loc?.country}`
+    );
     inputRef.current?.focus();
   };
 
@@ -83,7 +89,6 @@ export default function LocationSearch(props: Props) {
       onSubmit={(e) => {
         e.preventDefault();
         onSubmit?.();
-        console.log("submit");
         setQuery("");
       }}
     >

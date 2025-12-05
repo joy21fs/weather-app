@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Dropdown from "~/components/Dropdown";
 import DropdownTriggerButton from "~/components/Dropdown/DropdownTriggerButton";
@@ -9,26 +8,17 @@ import css from "./UnitSettings.module.css";
 
 import {
   UNIT_SYSTEMS,
-  type UnitSystem,
   TEMPERATURE_UNITS,
   WIND_SPEED_UNITS,
   PRECIPITATION_UNITS,
-  getUnitConfig,
   toggleUnitSystem,
+  type UnitType,
 } from "~/types/units";
-
-type UnitType = "temperature" | "windSpeed" | "precipitation";
+import { useWeather } from "~/contexts/WeatherContext";
 
 export default function UnitSettings() {
   const { t } = useTranslation("", { keyPrefix: "unitSettings" });
-
-  const [currentSystem, setCurrentSystem] = useState<UnitSystem>(
-    UNIT_SYSTEMS.IMPERIAL
-  );
-
-  const [currentUnits, setCurrentUnits] = useState<
-    Partial<Record<UnitType, string>>
-  >(getUnitConfig(currentSystem));
+  const { unitSystem, units, setUnitSystem, setUnits } = useWeather();
 
   const unitOptions: Record<UnitType, string[]> = {
     temperature: Object.values(TEMPERATURE_UNITS),
@@ -37,15 +27,11 @@ export default function UnitSettings() {
   };
 
   const handleSwitchSystem = () => {
-    setCurrentSystem((prev) => {
-      const newSystem = toggleUnitSystem(prev);
-      setCurrentUnits(getUnitConfig(newSystem));
-      return newSystem;
-    });
+    setUnitSystem(toggleUnitSystem(unitSystem));
   };
 
   const handleSetUnit = (type: UnitType, unit: string) => {
-    setCurrentUnits((prev) => ({ ...prev, [type]: unit }));
+    setUnits(type, unit);
   };
 
   return (
@@ -59,7 +45,7 @@ export default function UnitSettings() {
       <Button onClick={handleSwitchSystem} className={css.toggleBtn}>
         {t("switch", {
           unitSystem:
-            currentSystem === UNIT_SYSTEMS.METRIC
+            unitSystem === UNIT_SYSTEMS.METRIC
               ? UNIT_SYSTEMS.IMPERIAL
               : UNIT_SYSTEMS.METRIC,
         })}
@@ -72,9 +58,9 @@ export default function UnitSettings() {
               <Button
                 key={unit}
                 variant='option'
-                current={unit === currentUnits[type]}
+                current={unit === units[type]}
                 onClick={() => handleSetUnit(type, unit)}
-                rightIcon={unit === currentUnits[type] ? checkIcon : undefined}
+                rightIcon={unit === units[type] ? checkIcon : undefined}
               >
                 {unit}
               </Button>
