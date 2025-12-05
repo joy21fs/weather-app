@@ -6,8 +6,6 @@
   background-color: var(--color-neutral-800);
   border: 1px solid transparent;
   border-radius: var(--radius-20);
-  max-height: calc(100vh - 3rem);
-  overflow: scroll;
 
   .header {
     display: flex;
@@ -23,5 +21,16 @@
     display: flex;
     flex-direction: column;
     gap: inherit;
+
+    max-height: 88vh;
+    overflow: scroll;
+  }
+}
+
+@media (orientation: portrait) {
+  .HourlyForecast {
+    .hours {
+      max-height: 60vh;
+    }
   }
 }
