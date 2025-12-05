@@ -9,25 +9,19 @@ import { useWeather } from "~/contexts/WeatherContext";
 
 interface Location {
   name: string;
-  latitude: number;
-  longitude: number;
-  country: string;
+  latitude?: number;
+  longitude?: number;
+  country?: string;
 }
 
-interface Props {
-  onSubmit?: () => void;
-}
-
-export default function LocationSearch(props: Props) {
+export default function LocationSearch() {
   const { t } = useTranslation("", { keyPrefix: "search" });
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState<Location | undefined>();
   const [open, setOpen] = useState(false);
   const [results, setResults] = useState<Location[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [disabled, setDisabled] = useState(true); // not show dropdown on input focus without typing
-
-  const { onSubmit } = props;
 
   const { setLocation } = useWeather();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -42,7 +36,7 @@ export default function LocationSearch(props: Props) {
   const handleType = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setDisabled(false);
     const value = e.target.value;
-    setQuery(value);
+    setQuery({ name: value });
 
     if (!value) {
       setResults([]);
@@ -73,13 +67,13 @@ export default function LocationSearch(props: Props) {
   };
 
   const handleSelect = (loc: Location) => {
-    setQuery(`${loc.name}, ${loc.country}`);
+    setQuery({
+      name: loc.name,
+      country: loc.country,
+      latitude: loc.latitude,
+      longitude: loc.longitude,
+    });
     setResults([]);
-    setLocation(
-      loc?.latitude ?? 0,
-      loc?.longitude ?? 0,
-      `${loc?.name}, ${loc?.country}`
-    );
     inputRef.current?.focus();
   };
 
@@ -88,8 +82,12 @@ export default function LocationSearch(props: Props) {
       className={css.LocationSearch}
       onSubmit={(e) => {
         e.preventDefault();
-        onSubmit?.();
-        setQuery("");
+        setLocation(
+          query?.latitude ?? 0,
+          query?.longitude ?? 0,
+          `${query?.name}, ${query?.country}`
+        );
+        setQuery(undefined);
       }}
     >
       <Dropdown
@@ -101,7 +99,7 @@ export default function LocationSearch(props: Props) {
               name='locationInput'
               type='text'
               placeholder={t("inputPlaceholder")}
-              value={query}
+              value={query?.country && `${query?.name}, ${query?.country}`}
               onChange={handleType}
             />
           </div>
