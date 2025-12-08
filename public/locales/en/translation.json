@@ -25,5 +25,11 @@
     "inputPlaceholder": "Search for a place...",
     "loading": "Search in progress...",
     "noResult": "No search result found!"
+  },
+
+  "error": {
+    "warning": "Something went wrong",
+    "description": "We couldn’t connect to the server (API error). Please try again in a few moments.",
+    "retry": "Retry"
   }
 }

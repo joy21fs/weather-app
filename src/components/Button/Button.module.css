@@ -55,6 +55,14 @@
       background-color: var(--color-blue-700);
     }
   }
+
+  &.retry {
+    padding: 12px 16px;
+    gap: 10px;
+    background-color: var(--color-neutral-800);
+    border-radius: var(--radius-8);
+    width: fit-content;
+  }
 }
 
 /* TODO: focus state */
