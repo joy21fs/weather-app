@@ -23,6 +23,7 @@
   "search": {
     "button": "Search",
     "inputPlaceholder": "Search for a place...",
-    "loading": "Search in progress..."
+    "loading": "Search in progress...",
+    "noResult": "No search result found!"
   }
 }

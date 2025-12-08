@@ -7,18 +7,22 @@ import Dropdown from "~/components/Dropdown";
 import loadingIcon from "~/assets/icon-loading.svg";
 import { useWeather } from "~/contexts/WeatherContext";
 
-interface Location {
+interface Props {
+  results: Location[];
+  onSearch: (value: React.SetStateAction<Location[]>) => void;
+}
+export interface Location {
   name: string;
   latitude?: number;
   longitude?: number;
   country?: string;
 }
 
-export default function LocationSearch() {
+export default function LocationSearch(props: Props) {
+  const { results, onSearch } = props;
   const { t } = useTranslation("", { keyPrefix: "search" });
   const [query, setQuery] = useState<Location | undefined>();
   const [open, setOpen] = useState(false);
-  const [results, setResults] = useState<Location[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [disabled, setDisabled] = useState(true); // not show dropdown on input focus without typing
@@ -45,7 +49,6 @@ export default function LocationSearch() {
     });
 
     if (!value) {
-      setResults([]);
       // closes dropdown synchronously on input clear
       if (open) {
         setOpen(false);
@@ -64,7 +67,7 @@ export default function LocationSearch() {
       if (!response.ok) throw new Error("Failed to fetch locations");
       const data = await response.json();
 
-      setResults(data.results || []);
+      onSearch(data.results || []);
     } catch {
       setError("Something went wrong");
     } finally {
@@ -79,7 +82,7 @@ export default function LocationSearch() {
       latitude: loc.latitude,
       longitude: loc.longitude,
     });
-    setResults([]);
+    onSearch([loc]);
     inputRef.current?.focus();
   };
 
@@ -105,7 +108,13 @@ export default function LocationSearch() {
               name='locationInput'
               type='text'
               placeholder={t("inputPlaceholder")}
-              value={query?.country && `${query?.name}, ${query?.country}`}
+              value={
+                query
+                  ? query.country
+                    ? `${query.name}, ${query.country}`
+                    : query.name
+                  : ""
+              }
               onChange={handleType}
             />
           </div>
@@ -118,7 +127,7 @@ export default function LocationSearch() {
           <>
             {loading && <SearchInProgress loadingText={t("loading")} />}
             {error && <li style={{ color: "red" }}>{error}</li>}
-            {results.map((loc) => (
+            {results?.map((loc) => (
               <Button
                 variant='option'
                 key={`${loc.latitude}-${loc.longitude}`}
