@@ -4,6 +4,7 @@ import type { Props as WeatherOverviewProps } from "~/components/WeatherOverview
 import type { WeatherParms } from "~/types/weather";
 import css from "./WeatherSummary.module.css";
 import { useTranslation } from "react-i18next";
+import { useWeather } from "~/contexts/WeatherContext";
 
 type DisplayWeatherKeys = Pick<
   WeatherParms,
@@ -31,6 +32,7 @@ export default function WeatherSummary(props: WeatherSummaryProps) {
   const { t } = useTranslation();
   const { location, date, weather, currentTemperature, ...weatherValues } =
     props;
+  const { loading } = useWeather();
 
   return (
     <div className={css.WeatherSummary}>
@@ -39,12 +41,19 @@ export default function WeatherSummary(props: WeatherSummaryProps) {
         date={date}
         weather={weather}
         currentTemperature={currentTemperature}
+        loading={loading}
       />
       <div className={css.infoSection}>
         {DISPLAY_INFO.map((infoName) => {
           const value = weatherValues[infoName];
           const label = t(`weatherInfo.${infoName}`);
-          return <InfoCard key={infoName} infoName={label} value={value} />;
+          return (
+            <InfoCard
+              key={infoName}
+              infoName={label}
+              value={loading ? "-" : value}
+            />
+          );
         })}
       </div>
     </div>

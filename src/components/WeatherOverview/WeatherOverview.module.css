@@ -1,7 +1,4 @@
 .WeatherOverview {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   color: var(--color-neutral-0);
   position: relative;
 
@@ -10,16 +7,15 @@
   background-position: center;
 
   box-sizing: border-box;
-  padding: 80px 24px;
-  gap: 20px;
 
   border-radius: var(--radius-20);
 
-  .backgroundImg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 24px;
+    gap: 20px;
   }
 
   .placeNDate {
@@ -53,6 +49,27 @@
       letter-spacing: var(--ls-1);
     }
   }
+
+  .loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    font: var(--font-6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+
+  &.isLoading .loading {
+    opacity: 1;
+  }
+
+  &.isLoading .content {
+    opacity: 0;
+  }
 }
 
 @media (max-width: 720px) {
@@ -60,10 +77,11 @@
     background-image: url("images/bg-today-small.svg");
     background-size: cover;
 
-    flex-direction: column;
+    .content {
+      flex-direction: column;
 
-    justify-content: center;
-
+      justify-content: center;
+    }
     .placeNDate {
       align-items: center;
     }

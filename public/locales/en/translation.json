@@ -1,5 +1,6 @@
 {
   "welcome": "How’s the sky looking today?",
+  "loading": "Loading...",
   "sectionTitle": {
     "hourlyForecast": "Hourly Forecast",
     "dailyForecast": "Daily Forecast"

@@ -3,6 +3,7 @@ import css from "./HourlyForecast.module.css";
 import HourlyForecastCard from "~/components/HourlyForecastCard";
 import type { HourlyWeather } from "~/types/weather";
 import DayDropdown from "../../components/DayDropdown";
+import { useWeather } from "~/contexts/WeatherContext";
 
 interface Props {
   hours: HourlyWeather[];
@@ -10,6 +11,7 @@ interface Props {
 
 export default function HourlyForecast(props: Props) {
   const { t } = useTranslation();
+  const { loading } = useWeather();
   const { hours } = props;
 
   return (
@@ -25,6 +27,7 @@ export default function HourlyForecast(props: Props) {
             weather={weather}
             timeLabel={timeLabel}
             temperature={temperature}
+            loading={loading}
           />
         ))}
       </div>

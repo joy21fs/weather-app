@@ -8,12 +8,13 @@ export default function DayDropdown() {
   const selectedDay = selectedDate.toLocaleDateString("en-US", {
     weekday: "long",
   });
+  const { loading } = useWeather();
 
   return (
     <Dropdown
       trigger={
         <DropdownTriggerButton variant='trigger-days'>
-          {selectedDay}
+          {loading ? "-" : selectedDay}
         </DropdownTriggerButton>
       }
     >

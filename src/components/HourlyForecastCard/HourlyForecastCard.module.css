@@ -9,6 +9,10 @@
 
   color: var(--color-neutral-0);
 
+  &.loading > * {
+    opacity: 0;
+  }
+
   .weatherNTime {
     display: flex;
     align-items: center;

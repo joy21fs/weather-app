@@ -36,7 +36,13 @@ export default function LocationSearch() {
   const handleType = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setDisabled(false);
     const value = e.target.value;
-    setQuery({ name: value });
+
+    const [name, country] = value.split(",").map((s) => s.trim());
+
+    setQuery({
+      name,
+      country: country || undefined,
+    });
 
     if (!value) {
       setResults([]);

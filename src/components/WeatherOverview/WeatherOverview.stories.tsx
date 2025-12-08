@@ -14,8 +14,12 @@ export const Default: Story = {
     location: "Berlin, Germany",
     date: "Tuesday, Aug 5, 2025",
     weather: "sunny",
-    currentTemperature: 20,
+    currentTemperature: "20",
   },
 };
 
-Default.storyName = "WeatherOverview";
+export const Loading: Story = {
+  args: {
+    loading: true,
+  },
+};

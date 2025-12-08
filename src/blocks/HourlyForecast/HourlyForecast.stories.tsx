@@ -15,12 +15,12 @@ export const Default: Story = {
       {
         weather: "stormy",
         temperature: 58,
-        time: "3 PM",
+        timeLabel: "3 PM",
       },
       {
         weather: "rainy",
         temperature: 55,
-        time: "4 PM",
+        timeLabel: "4 PM",
       },
     ],
   },

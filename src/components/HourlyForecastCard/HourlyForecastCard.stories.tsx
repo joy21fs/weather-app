@@ -28,9 +28,13 @@ type Story = StoryObj<typeof HourlyForecastCard>;
 export const Default: Story = {
   args: {
     weather: "cloudy",
-    time: "2 PM",
+    timeLabel: "2 PM",
     temperature: 20,
   },
 };
 
-Default.storyName = "HourlyForecastCard";
+export const Loading: Story = {
+  args: {
+    loading: true,
+  },
+};
