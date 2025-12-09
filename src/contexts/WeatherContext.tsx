@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { fetchWeatherApi } from "openmeteo";
 import {
   createContext,
@@ -52,9 +53,8 @@ export interface WeatherState {
   setSelectedDate: (d: Date) => void;
 }
 
-const WeatherContext = createContext<WeatherState | null>(null);
+export const WeatherContext = createContext<WeatherState | null>(null);
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useWeather = (): WeatherState => {
   const ctx = useContext(WeatherContext);
   if (!ctx) throw new Error("useWeather must be used within WeatherProvider");
@@ -70,6 +70,19 @@ const DEFAULT_WEATHER_PARAMS = {
   unitSystem: UNIT_SYSTEMS.METRIC,
 };
 
+export const DEFAULT_STATE = {
+  current: null,
+  daily: [],
+  hourly: [],
+  loading: false,
+  error: null,
+  latitude: DEFAULT_WEATHER_PARAMS.latitude,
+  longitude: DEFAULT_WEATHER_PARAMS.longitude,
+  locationLabel: DEFAULT_WEATHER_PARAMS.locationLabel,
+  unitSystem: DEFAULT_WEATHER_PARAMS.unitSystem,
+  units: DEFAULT_WEATHER_PARAMS.units,
+};
+
 // =========================================================
 //                  WEATHER PROVIDER
 // =========================================================
@@ -80,27 +93,17 @@ export function WeatherProvider({ children }: { children: ReactNode }) {
   const [rawDaily, setRawDaily] = useState<DailyForecast[]>([]);
 
   // ---------- TRANSFORMED / UI STATE ----------
-  const [state, setState] = useState<
-    Omit<
-      WeatherState,
-      | "setLocation"
-      | "setUnits"
-      | "setUnitSystem"
-      | "setSelectedDate"
-      | "selectedDate"
-    >
-  >({
-    current: null,
-    daily: [],
-    hourly: [],
-    loading: false,
-    error: null,
-    latitude: DEFAULT_WEATHER_PARAMS.latitude,
-    longitude: DEFAULT_WEATHER_PARAMS.longitude,
-    locationLabel: DEFAULT_WEATHER_PARAMS.locationLabel,
-    unitSystem: DEFAULT_WEATHER_PARAMS.unitSystem,
-    units: DEFAULT_WEATHER_PARAMS.units,
-  });
+  const [state, setState] =
+    useState<
+      Omit<
+        WeatherState,
+        | "setLocation"
+        | "setUnits"
+        | "setUnitSystem"
+        | "setSelectedDate"
+        | "selectedDate"
+      >
+    >(DEFAULT_STATE);
 
   const [selectedDate, setSelectedDate] = useState(new Date());
 

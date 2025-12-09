@@ -10,12 +10,13 @@ import { useWeather } from "~/contexts/WeatherContext";
 import type { Day } from "~/types/days";
 import { useState } from "react";
 import type { Location } from "../LocationSearch/LocationSearch";
+import ErrorFallback from "~/components/ErrorFallback";
 
 const DAYS: Day[] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export default function WeatherForecast() {
   const { t } = useTranslation();
-  const { current, hourly, daily, locationLabel } = useWeather();
+  const { current, hourly, daily, locationLabel, error } = useWeather();
   const today = DAYS[new Date().getDay()];
   const [searchResults, setSearchResults] = useState<Location[]>([
     { name: "Taichung", country: "Taiwan" },
@@ -27,36 +28,44 @@ export default function WeatherForecast() {
         <img src={Logo} alt={"logo "} />
         <UnitSettings />
       </header>
-      <h1>{t("welcome")}</h1>
-      <LocationSearch results={searchResults} onSearch={setSearchResults} />
-      {searchResults.length ? (
-        <section className={css.weatherInfo}>
-          <div className={css.weatherSummary}>
-            <WeatherSummary
-              apparent_temperature={`${current?.apparent_temperature}`}
-              relative_humidity_2m={`${current?.relative_humidity_2m}`}
-              wind_speed_10m={`${current?.wind_speed_10m}`}
-              precipitation={`${current?.precipitation}`}
-              location={locationLabel}
-              date={new Date().toLocaleDateString("en-US", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-              weather={current?.weather ?? "sunny"}
-              currentTemperature={`${current?.temperature_2m}`}
-            />
-          </div>
-          <div className={css.dailyForecast}>
-            <DailyForecast startDay={today} forecasts={daily} />
-          </div>
-          <div className={css.hourlyForecast}>
-            <HourlyForecast hours={hourly} />
-          </div>
-        </section>
+      {error ? (
+        <ErrorFallback />
       ) : (
-        <span style={{ font: "var(--font-4)" }}>{t("search.noResult")}</span>
+        <>
+          <h1>{t("welcome")}</h1>
+          <LocationSearch results={searchResults} onSearch={setSearchResults} />
+          {searchResults.length ? (
+            <section className={css.weatherInfo}>
+              <div className={css.weatherSummary}>
+                <WeatherSummary
+                  apparent_temperature={`${current?.apparent_temperature}`}
+                  relative_humidity_2m={`${current?.relative_humidity_2m}`}
+                  wind_speed_10m={`${current?.wind_speed_10m}`}
+                  precipitation={`${current?.precipitation}`}
+                  location={locationLabel}
+                  date={new Date().toLocaleDateString("en-US", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                  weather={current?.weather ?? "sunny"}
+                  currentTemperature={`${current?.temperature_2m}`}
+                />
+              </div>
+              <div className={css.dailyForecast}>
+                <DailyForecast startDay={today} forecasts={daily} />
+              </div>
+              <div className={css.hourlyForecast}>
+                <HourlyForecast hours={hourly} />
+              </div>
+            </section>
+          ) : (
+            <span style={{ font: "var(--font-4)" }}>
+              {t("search.noResult")}
+            </span>
+          )}
+        </>
       )}
     </div>
   );

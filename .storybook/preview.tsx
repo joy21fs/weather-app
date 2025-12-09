@@ -2,6 +2,7 @@ import type { Preview } from "@storybook/react-vite";
 import "~/index.css";
 import "~/App.css";
 import i18nInstance from "../src/i18n";
+import { WeatherProvider } from "~/contexts/WeatherContext";
 
 const i18n = i18nInstance.cloneInstance({
   react: {
@@ -26,6 +27,13 @@ const preview: Preview = {
       test: "todo",
     },
   },
+  decorators: [
+    (Story) => (
+      <WeatherProvider>
+        <Story />
+      </WeatherProvider>
+    ),
+  ],
 };
 
 export default preview;

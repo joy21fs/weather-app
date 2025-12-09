@@ -12,7 +12,11 @@ export default function ErrorFallback() {
 
       <h2>{t("warning")}</h2>
       <p>{t("description")}</p>
-      <Button leftIcon={RetryIcon} variant='retry'>
+      <Button
+        leftIcon={RetryIcon}
+        variant='retry'
+        onClick={() => window.location.reload()}
+      >
         {t("retry")}
       </Button>
     </div>

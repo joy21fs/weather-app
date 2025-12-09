@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import WeatherForecast from "./WeatherForecast";
+import { DEFAULT_STATE, WeatherContext } from "~/contexts/WeatherContext";
+import { fromPartial } from "@total-typescript/shoehorn";
 
 const meta: Meta<typeof WeatherForecast> = {
   title: "Blocks/WeatherForecast",
@@ -14,4 +16,14 @@ type Story = StoryObj<typeof WeatherForecast>;
 
 export const Default: Story = {};
 
-Default.storyName = "WeatherForecast";
+export const Error: Story = {
+  decorators: [
+    (Story) => (
+      <WeatherContext.Provider
+        value={fromPartial({ ...DEFAULT_STATE, error: "some error" })}
+      >
+        <Story />
+      </WeatherContext.Provider>
+    ),
+  ],
+};
