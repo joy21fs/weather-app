@@ -4,6 +4,13 @@ import WeatherOverview from "./WeatherOverview";
 const meta: Meta<typeof WeatherOverview> = {
   title: "Components/WeatherOverview",
   component: WeatherOverview,
+  decorators: [
+    (Story) => (
+      <div style={{ display: "flex" }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;

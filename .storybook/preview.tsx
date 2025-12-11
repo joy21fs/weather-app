@@ -28,11 +28,18 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story) => (
-      <WeatherProvider>
-        <Story />
-      </WeatherProvider>
-    ),
+    (Story, { parameters }) => {
+      const { weatherProviderOn = true } = parameters;
+      return weatherProviderOn ? (
+        <WeatherProvider>
+          <Story />
+        </WeatherProvider>
+      ) : (
+        <>
+          <Story />
+        </>
+      );
+    },
   ],
 };
 
