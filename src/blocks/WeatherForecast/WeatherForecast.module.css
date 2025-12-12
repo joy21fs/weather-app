@@ -54,7 +54,7 @@
 @media (max-width: 430px) {
   .WeatherForecast {
     .nav {
-      * {
+      img {
         transform: scale(0.8);
         transform-origin: left;
       }
