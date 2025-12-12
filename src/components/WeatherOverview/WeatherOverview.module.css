@@ -2,7 +2,7 @@
   color: var(--color-neutral-0);
   position: relative;
 
-  background-image: url("images/bg-today-large.svg");
+  background-image: url("/images/bg-today-large.svg");
   background-repeat: no-repeat;
   background-position: center;
 
@@ -74,7 +74,7 @@
 
 @media (max-width: 720px) {
   .WeatherOverview {
-    background-image: url("images/bg-today-small.svg");
+    background-image: url("/images/bg-today-small.svg");
     background-size: cover;
 
     .content {
