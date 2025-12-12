@@ -32,7 +32,7 @@ export const Default: Story = {
       day: "numeric",
     }),
     weather: "foggy",
-    currentTemperature: 60,
+    currentTemperature: "60°",
     apparent_temperature: "64°",
     wind_speed_10m: "9 mph",
     relative_humidity_2m: "46%",
