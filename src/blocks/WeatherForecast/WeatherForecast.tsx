@@ -25,7 +25,7 @@ export default function WeatherForecast() {
   return (
     <div className={css.WeatherForecast}>
       <header className={css.nav}>
-        <img src={Logo} alt={"logo "} />
+        <img className={css.logo} src={Logo} alt={"logo "} />
         <UnitSettings />
       </header>
       {error ? (
