@@ -33,7 +33,20 @@ Users should be able to:
 - View an optimal layout depending on their device's screen size
 
 ### Screenshot
+ - Web view:
+   
  <img width="3106" height="2366" alt="weather-app-joy21fs vercel app_" src="https://github.com/user-attachments/assets/abcf4f82-58b3-40c0-a500-38ce14314c57" />
+ 
+- Tablet view:
+  
+<img width="600" alt="weather-app-joy21fs vercel app_(iPad Mini)" src="https://github.com/user-attachments/assets/8fc9e01f-55c0-4175-ae81-73275c8a8cb3" />
+
+- Mobile view:
+  
+<img width="360" alt="weather-app-joy21fs vercel app_(iPhone 12 Pro)" src="https://github.com/user-attachments/assets/6c6dc053-d678-4772-ae61-464b4d185c33" />
+
+
+ 
 
 
 
@@ -73,15 +86,8 @@ Users should be able to:
 
 ---
 
-### Useful resources
+### Api resources
 
 - [https://open-meteo.com/](https://open-meteo.com/) – Weather API
-- [https://caniuse.com](https://caniuse.com) – Browser support reference
-- [https://developer.mozilla.org](https://developer.mozilla.org) – HTML, CSS, and accessibility docs
-- [https://react.dev](https://react.dev) – Official React documentation
 
 ---
-
-### Notes
-
-This project focuses on **clean component boundaries**, **accessibility**, and **real-world UI states** (loading, error, empty). It was built to resemble production-ready frontend patterns rather than a purely visual demo.
