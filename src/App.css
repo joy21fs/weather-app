@@ -1,3 +1,8 @@
+/* .storybook/preview.css */
+.sb-show-main.sb-main-fullscreen {
+  padding: initial; /* allow your component padding to work */
+}
+
 :root {
   margin: 0 auto;
   text-align: center;
@@ -20,21 +25,27 @@ h2 {
 }
 
 @media (max-width: 768px) {
-  body {
+  body,
+    /* storybook preview wrapper*/
+  body.sb-show-main.sb-main-fullscreen {
     padding-inline: var(--spacing-200);
     padding-block: var(--spacing-200) var(--spacing-600);
   }
 }
 
 @media (min-width: 768px) {
-  body {
+  body,
+  /* storybook preview wrapper*/
+  body.sb-show-main.sb-main-fullscreen {
     padding-inline: var(--spacing-300);
     padding-block: var(--spacing-300) var(--spacing-1000);
   }
 }
 
 @media (min-width: 1440px) {
-  body {
+  body,
+    /* storybook preview wrapper*/
+  body.sb-show-main.sb-main-fullscreen {
     padding-inline: var(--spacing-1400);
     padding-block: var(--spacing-600) var(--spacing-1000);
   }
