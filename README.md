@@ -33,6 +33,10 @@ Users should be able to:
 - View an optimal layout depending on their device's screen size
 
 ### Screenshot
+ <img width="3106" height="2366" alt="weather-app-joy21fs vercel app_" src="https://github.com/user-attachments/assets/abcf4f82-58b3-40c0-a500-38ce14314c57" />
+
+
+
 
 ### Links
 
