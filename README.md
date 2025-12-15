@@ -46,6 +46,13 @@ Users should be able to:
 <img width="360" alt="weather-app-joy21fs vercel app_(iPhone 12 Pro)" src="https://github.com/user-attachments/assets/6c6dc053-d678-4772-ae61-464b4d185c33" />
 
 
+- Storybook components:
+<img width="1510" height="821" alt="weatherOverview-loading-state" src="https://github.com/user-attachments/assets/41288625-c090-4cf6-a20c-ce7ad358cb98" />
+<img width="1510" height="821" alt="error fallback" src="https://github.com/user-attachments/assets/a74aa1a7-84a1-4920-82ec-15cbfd953c7e" />
+<img width="1510" height="821" alt="day dropdown" src="https://github.com/user-attachments/assets/1e570f4c-b3e2-445e-ab44-a68a6764d973" />
+
+
+
  
 
 
@@ -55,6 +62,7 @@ Users should be able to:
 
 - Solution URL: [https://github.com/joy21fs/weather-app](https://github.com/joy21fs/weather-app)
 - Live Site URL: [https://weather-app-joy21fs.vercel.app/](https://weather-app-joy21fs.vercel.app/)
+- Storybook URL: https://weather-app-storybook.vercel.app/
 
 ---
 
